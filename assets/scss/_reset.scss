@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url(../img/backgroundImage.jpg);
+  margin: auto;
+  background-repeat: no-repeat;
+  font-family: $font;
+  overflow: auto;
+}
+main{
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+}
+textarea {
+  padding: 5px;
+  border-radius: 9px;
+  resize: none;
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  font-family: $font-default;
+  letter-spacing: 2px;
+}
+
+form,
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}

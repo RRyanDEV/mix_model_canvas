@@ -1,0 +1,220 @@
+.containerLogin {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+  max-width: 1200px;
+  width: 100%;
+
+  @media(max-width: 768px) {
+    flex-wrap: wrap;
+  }
+}
+
+.loginTitle {
+  color: #2f2f2f;
+  font-size: 40px;
+  &_register {
+    @extend .loginTitle;
+    color: $color-default;
+  }
+};
+
+.headerLoginBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+};
+
+.register,
+.login {
+  h4 {
+    font-weight: lighter;
+  }
+
+  border-radius: 5px;
+  box-shadow: $shadow;
+  height: auto;
+  max-width: 400px;
+  padding: 40px 15px;
+  text-align: center;
+  width: 100%;
+
+  .fas {
+    color: $card11;
+    font-size: 35px;
+    margin-bottom: 5px;
+  }
+
+  .create-account {
+    border-top: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding-top: 30px;
+
+    strong {
+      font-size: 16px;
+      margin-left: 5px;
+      text-decoration: underline;
+    }
+  }
+}
+
+.register,
+.login {
+  background: $color-default;
+
+  .form {
+    margin-top: 30px;
+    padding: 0 0px;
+
+    .form-row {
+      position: relative;
+      text-align: left;
+
+      .fas {
+        font-size: 15px;
+        position: absolute;
+        right: 10px;
+        top: 30px
+      }
+
+      &.bottom {
+        display: flex;
+        justify-content: space-between;
+
+        .forgot {
+          color: $card11;
+        }
+      }
+
+      &.button-login {
+        margin-top: 50px;
+
+        .fas {
+          position: static;
+        }
+      }
+
+      // style checkbox remember 
+      .form-check {
+        input[type=checkbox]+label {
+          color: #555;
+          cursor: pointer;
+          display: block;
+        }
+
+        input[type=checkbox] {
+          display: none;
+        }
+
+        // style label input checkbox
+        input[type=checkbox]+label:before {
+          border-radius: 3px;
+          border: 1px solid #e2e2e2;
+          color: transparent;
+          display: inline-block;
+          height: 15px;
+          content: "\2714";
+          margin-right: 5px;
+          transition: .2s;
+          vertical-align: bottom;
+          width: 15px;
+          line-height: 16px;
+          font-size: 12px;
+          text-align: center;
+        }
+
+        // input active scale
+        input[type=checkbox]+label:active:before {
+          transform: scale(1.1);
+        }
+
+        // color input checked
+        input[type=checkbox]:checked+label:before {
+          background-color: $card11;
+          border-color: $card11;
+          color: $color-default;
+        }
+
+      }
+    }
+
+    .form-label {
+      color: #555;
+      font-size: 12px;
+    }
+  }
+
+  .form-password,
+  .form-text {
+    border-radius: 2px;
+    border: 0;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 0 40px 0 10px;
+    width: 100%;
+    background: #f1f1f1 no-repeat;
+    transition: 100ms all linear 0s;
+
+    // style and effect focus inputs
+    background-image: linear-gradient(148deg, rgba(147, 161, 231, 1) 0%, rgba(50, 100, 147, 1) 50%, rgba(186, 186, 186, 1) 100%);
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    // effect transition
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+
+    // focus  active input
+    &:focus {
+      background-size: 100% 2px, 100% 1px;
+      outline: none;
+    }
+  }
+}
+
+.register {
+  transform: scale(1.01);
+  // background gradient create accound 
+  background-image: linear-gradient(148deg, rgba(147, 161, 231, 1) 0%, rgba(50, 100, 147, 1) 50%, rgba(186, 186, 186, 1) 100%);
+
+  .fas,
+  strong {
+    color: $color-default;
+  }
+
+  .form {
+    .form-label {
+      color: $color-default;
+    }
+
+    .form-row {
+      .fas {
+        color: $card11;
+      }
+
+      .button-login {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .btn-login {
+    background: $color-default;
+    color: #555;
+
+    .fas.fa-arrow-right {
+      color: #555;
+    }
+
+    &:hover {
+      background: #d5d7de;
+    }
+  }
+
+  .create-account {
+    color: $color-default;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "mix_canvas",
+  "version": "v1.0.0-2310",
+  "license": "none",
+  "description": "Aplicação web utilizada pelos alunos da pós-gradução do IFRJ - Eng. Paulo de Frontin",
+  "private": false,
+  "scripts": {
+    "dev": "php -S localhost:8000",
+    "git:clear": "bash cleargitcache.sh"
+  },
+  "dependencies": {
+    "sass": "^1.62.0"
+  }
+}

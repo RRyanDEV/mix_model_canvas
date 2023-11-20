@@ -1,0 +1,358 @@
+// Box User
+.container_g {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 92%;
+    width: 100%;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container_md {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    color: $color-default;
+    width: 50%;
+    height: 61%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container_mdf {
+    -webkit-box-shadow: 0px 3px 8px 11px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 0px 3px 8px 11px rgba(0, 0, 0, 0.29);
+    box-shadow: 0px 3px 8px 11px rgba(0, 0, 0, 0.29);
+    width: 50%;
+    height: 70%;
+    @extend .container_md;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.box_md {
+    height: fit-content;
+    gap: 30px;
+    justify-content: space-between;
+    text-align: justify;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+
+
+
+// Box Models
+#text {
+    height: 30%;
+    text-align: justify;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#user-info {
+    display: flex;
+}
+
+#subtitle_text {
+    width: 80%;
+}
+
+#letter_count {
+    color: $color-default;
+    padding: 5px;
+    align-self: flex-end;
+    font-size: 9px;
+    height: 9px;
+}
+
+.card_side_right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, rgba(77, 92, 107, 0.3) 100%);
+}
+
+.card_text {
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card_side_left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px 0px 0px 10px;
+    -webkit-border-radius: 10px 0px 0px 10px;
+    -moz-border-radius: 10px 0px 0px 10px;
+    height: 100%;
+    width: 50%;
+    background-color: $color-default;
+
+    &_blue {
+        @extend .card_side_left;
+        background-color: $color-card;
+    }
+
+    &_green {
+        @extend .card_side_left;
+        background-color: $card2;
+        color: $dark;
+    }
+
+    &_aquamarine {
+        @extend .card_side_left;
+        background-color: $card3;
+    }
+
+    &_olive {
+        @extend .card_side_left;
+        background-color: $card4;
+    }
+
+    &_yellow {
+        @extend .card_side_left;
+        background-color: $card5;
+        color: $dark;
+    }
+
+    &_red {
+        @extend .card_side_left;
+        background-color: $card6;
+    }
+
+    &_emerald {
+        @extend .card_side_left;
+        background-color: $card7;
+    }
+
+    &_rose {
+        @extend .card_side_left;
+        background-color: $card8;
+        color: $dark;
+    }
+
+    &_orange {
+        @extend .card_side_left;
+        background-color: $card9;
+    }
+
+    &_jade {
+        @extend .card_side_left;
+        background-color: $card10;
+    }
+
+    &_lightblue {
+        @extend .card_side_left;
+        background-color: $card11;
+    }
+
+    &_lawngreen {
+        @extend .card_side_left;
+        background-color: $card12;
+    }
+
+    &_gray {
+        @extend .card_side_left;
+        background-color: $card13;
+    }
+}
+
+.box-user {
+    border-radius: 5px;
+    width: 100%;
+    background-color: $color-default;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cont-model {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardside {
+    display: flex;
+    flex-direction: row;
+}
+
+.models {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.cardmodel {
+    width: 300px;
+    background-color: $color-default;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.model {
+    padding: 20px;
+}
+
+.input {
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    margin-bottom: 0px;
+}
+
+.colorBG {
+    background: rgb(43, 47, 119);
+    background: linear-gradient(135deg, rgba(43, 47, 119, 1) 0%, rgba(20, 24, 82, 1) 50%, rgba(7, 11, 52, 1) 100%);
+}
+
+
+// Grid Dashboard
+.dashboardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+};
+
+.card {
+    justify-content: space-evenly;
+    cursor: pointer;
+    width: 15rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-radius: 20px;
+    background-color: $color-card;
+    color: $color-default;
+    display: flex;
+    flex-direction: column;
+
+    #cardTitle {
+        font-weight: bold;
+        font-family: $font;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    };
+
+    #cardSubtitle {
+        margin-left: 2px;
+        margin-right: 2px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+    &_green {
+        @extend .card;
+        background-color: $card2;
+        color: $dark;
+    }
+
+    &_aquamarine {
+        @extend .card;
+        background-color: $card3;
+    }
+
+    &_olive {
+        @extend .card;
+        background-color: $card4;
+    }
+
+    &_yellow {
+        @extend .card;
+        background-color: $card5;
+        color: $dark;
+    }
+
+    &_red {
+        @extend .card;
+        background-color: $card6;
+    }
+
+    &_emerald {
+        @extend .card;
+        background-color: $card7;
+    }
+
+    &_rose {
+        @extend .card;
+        background-color: $card8;
+        color: $dark;
+    }
+
+    &_orange {
+        @extend .card;
+        background-color: $card9;
+    }
+
+    &_jade {
+        @extend .card;
+        background-color: $card10;
+    }
+
+    &_lightblue {
+        @extend .card;
+        justify-content: space-around;
+        background-color: $card11;
+    }
+
+    &_lawngreen {
+        @extend .card;
+        background-color: $card12;
+    }
+
+    &_gray {
+        @extend .card;
+        background-color: $card13;
+    }
+
+    .mt {
+        margin-top: 28px;
+    }
+
+    ;
+
+    .mb {
+        margin-bottom: 28px;
+    }
+}
+
+.cardBottom {
+    .card_gray {
+        height: 117px;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

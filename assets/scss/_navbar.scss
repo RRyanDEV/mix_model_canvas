@@ -1,0 +1,31 @@
+.navback {
+    justify-content: flex-start;
+    justify-content: space-between;
+    display: flex;
+    background-image: linear-gradient(148deg, rgba(147, 161, 231, 1) 0%, rgba(50, 100, 147, 1) 50%, rgba(186, 186, 186, 1) 100%);
+    width: 100%;
+    height: 100%;
+    border-bottom: 20px;
+    align-items: center;
+}
+
+.userinfo {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+#usertext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#usericon {
+    img {
+        width: 50px;
+        height: 50px;
+        padding: 3px;
+        justify-content: center;
+    }
+}
