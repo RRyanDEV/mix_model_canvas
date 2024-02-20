@@ -2,7 +2,7 @@
 include("../utils/utils.php");
 include("../api/form.php");
 include("../api/auth.php");
-include("../components/FormComponent.php");
+include("../components/formComponent.php");
 include("../services/database/performQuery.php");
 include_once("../components/layouts/defaultLayout.php");
 session_start();

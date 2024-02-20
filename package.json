@@ -1,14 +1,18 @@
 {
   "name": "mix_canvas",
-  "version": "v1.0.0-2310",
+  "version": "v1.0.1-240220",
   "license": "none",
   "description": "Aplicação web utilizada pelos alunos da pós-gradução do IFRJ - Eng. Paulo de Frontin",
   "private": false,
   "scripts": {
-    "dev": "php -S localhost:8000",
-    "git:clear": "bash cleargitcache.sh"
+    "dev": "yarn php & yarn tailwind",
+    "php": "php -S localhost:8000",
+    "tailwind": "yarn tailwindcss -i ./src/input.css -o ./dist/style.css --watch"
   },
   "dependencies": {
     "sass": "^1.62.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
   }
 }

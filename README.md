@@ -19,7 +19,7 @@
 <img alt="MySQL" src="https://img.shields.io/badge/MySQL-%2300f.svg?&logo=MySQL&logoColor=white">
 </a>
 
-<a href=""><img src="https://img.shields.io/badge/version-3.0.0-232011?" height="22" alt="Version"/></a>
+<a href=""><img src="https://img.shields.io/badge/version-3.0.1-240220?" height="22" alt="Version"/></a>
 
 <br>
 
@@ -32,6 +32,14 @@
 ## Notas de versão
 
 </a>
+
+### v3.0.1.240220
+
+- Realocação de arquivos, para o diretório correto.
+- Ajustes no redirecionamento das APIs.
+- Instalado o framework `TailwindCSS`.
+- Introdução a duas novas funcionalidades no projeto.
+
 
 ### v3.0.0.232011
 
