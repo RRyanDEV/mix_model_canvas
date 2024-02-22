@@ -46,13 +46,13 @@
 
                 <div>
                     <label for="nomeProje" class="block mb-2 text-sm font-medium text-white">Nome do Projeto</label>
-                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5" placeholder="Digite o nome do Projeto" required />
+                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5" placeholder="Digite o nome do Projeto" required/>
                 </div>
 
                 <div>
                     <label for="descProje" class="block mb-2 text-sm font-medium text-white">Descrição do Projeto</label>
                     <div class="input">
-                        <textarea id="txt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5" maxlength="500" cols="100" placeholder="Digite uma descrição do Projeto" required></textarea>
+                        <textarea id="txt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5" maxlength="500" cols="100" placeholder="Digite uma descrição do Projeto"></textarea>
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@
             <div id="buttons">
                 <div id="gridBtn" class="flex flex-row justify-around max-sm:flex-col max-sm:items-center max-sm:space-y-5 mb-3">
 
-                    <a href="">
+                    <a href="./projetos.php">
                         <button type="button" class="w-30 text-white bg-green-700 hover:bg-green-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">
                             Criar
                         </button>

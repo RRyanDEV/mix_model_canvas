@@ -19,7 +19,7 @@
 <img alt="MySQL" src="https://img.shields.io/badge/MySQL-%2300f.svg?&logo=MySQL&logoColor=white">
 </a>
 
-<a href=""><img src="https://img.shields.io/badge/version-3.0.1-240220?" height="22" alt="Version"/></a>
+<a href=""><img src="https://img.shields.io/badge/version-3.0.2-240222?" height="22" alt="Version"/></a>
 
 <br>
 
@@ -32,6 +32,13 @@
 ## Notas de versão
 
 </a>
+
+### v3.0.2.240222
+
+- Mudança no background da `dashboard`.
+- Instalado uma nova biblioteca `Flowbite`.
+- Ajustes na tela de `Projetos` e `Novos Projetos`.
+- Modificado a barra de navegação da `dashboard`.
 
 ### v3.0.1.240220
 
