@@ -42,3 +42,6 @@ function createPdfComponent()
                 </div></div></div></div>';
     return $heading . $component;
 }
+?>
+
+<!-- . -->

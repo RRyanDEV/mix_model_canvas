@@ -1,3 +1,18 @@
+<?php
+include("../services/authService.php");
+include_once("../utils/utils.php");
+authHandler("GET");
+
+if (isset($_POST)) {
+    // echo "qualquercoisa";
+    $arr = $_POST;
+    print_r($arr);
+}
+
+
+$utils = new Utils();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -20,7 +35,7 @@
 
             <div class="ml-3 flex space-x-2 items-center" id="userInfo">
                 <img class="w-8 h-8" src="../assets/img/user-icon.png">
-                <p class="text-white">Olá, USER</p>
+                <p class="text-white">Olá, <?php echo $_SESSION['username']; ?></p>
             </div>
 
             <div class="flex flex-row text-white space-x-3 mr-5 items-center">
@@ -43,37 +58,27 @@
 
 
             <div class="flex flex-col items-center space-y-6">
+                <form action="" method="POST">
+                    <div id="projCreate" class="flex flex-col space-y-4">
+                        <div>
+                            <label for="projName" class="block mb-2 text-sm font-medium text-white">Nome do Projeto</label>
+                            <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5" placeholder="Digite o nome do Projeto" required name="projName" />
+                        </div>
 
-                <div>
-                    <label for="nomeProje" class="block mb-2 text-sm font-medium text-white">Nome do Projeto</label>
-                    <input type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5" placeholder="Digite o nome do Projeto" required/>
-                </div>
-
-                <div>
-                    <label for="descProje" class="block mb-2 text-sm font-medium text-white">Descrição do Projeto</label>
-                    <div class="input">
-                        <textarea id="txt" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5" maxlength="500" cols="100" placeholder="Digite uma descrição do Projeto"></textarea>
+                        <div>
+                            <div id="">
+                                <label for="projDesc" class="block mb-2 text-sm font-medium text-white">Descrição do Projeto</label>
+                                <textarea id="projDesc" name="projDesc" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-60 p-2.5" maxlength="500" cols="100" placeholder="Digite uma descrição do Projeto"></textarea>
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-
             </div>
-
             <div id="buttons">
-                <div id="gridBtn" class="flex flex-row justify-around max-sm:flex-col max-sm:items-center max-sm:space-y-5 mb-3">
-
-                    <a href="./projetos.php">
-                        <button type="button" class="w-30 text-white bg-green-700 hover:bg-green-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">
-                            Criar
-                        </button>
-                    </a>
-
+                <div id="btn" class="flex flex-row justify-around max-sm:flex-col max-sm:items-center max-sm:space-y-5 mb-3">
+                    <button type="submit" name="submit" class="w-30 text-white bg-green-700 hover:bg-green-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">Criar</button>
                 </div>
+                </form>
             </div>
-
-        </div>
-
-    </div>
 
 </body>
 

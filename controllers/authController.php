@@ -9,10 +9,10 @@ function authLogin()
     $resultHashed = checkCredentials(true, $email, $password);
     if ($result) {
         $_SESSION['username'] = $result;
-        header("Location: dashboard.php");
+        header("Location: projetos.php");
     } else if ($resultHashed) {
         $_SESSION['username'] = $resultHashed;
-        header("Location: dashboard.php");
+        header("Location: projetos.php");
     } else {
         header("Location: error.php");
     }
@@ -44,3 +44,6 @@ function authCreateUser()
     }
     exit();
 }
+?>
+
+<!-- . -->

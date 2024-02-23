@@ -29,6 +29,16 @@ function performQuery($type, $args)
             $queryResult = mysqli_query($connection->connect(), $query);
             $result = mysqli_fetch_all($queryResult, MYSQLI_NUM);
             break;
+        case "selectProject": 
+            $query = "SELECT * FROM `projetos` WHERE id_user='$args[0]'";
+            $queryResult = mysqli_query($connection->connect(), $query);
+            $result = mysqli_fetch_all($queryResult, MYSQLI_NUM);
+            print_r($result);
+        break;
+        case "insertProject": 
+            $query = "INSERT INTO `projetos` (id_user, projeto_nome, projeto_desc) VALUES ('$args[0]' , '$args[1]', '$args[2]')";
+            $result = mysqli_query($connection->connect(), $query);
+        break;
         default: //Checa credenciais
             $query = "SELECT * FROM `users` WHERE email='$args[0]' AND password='" . ($args[1]) . "'";
             $queryResult = mysqli_query($connection->connect(), $query);
@@ -42,3 +52,7 @@ function performQuery($type, $args)
         return $result;
     }
 }
+
+?>
+
+<!-- . -->

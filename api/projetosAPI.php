@@ -1,22 +1,18 @@
 <?php
 
-include("../controllers/formularioController.php");
-
-
+include("../controllers/projectController.php");
 
 function formHandler($method, $args)
 {
   switch ($method) {
     case "POST":
       if (isset($_POST['submit'])) {
-        if (!isset($_SESSION['username'])) {
-          header('Location: ./pages/login.php', true, 301);
-          exit();
-        } else {
-          formUpdate(array($args));
-        }
+        postProjeto(array($args));
       }
       break;
+      case "GET":
+        $_SESSION['projetos'] = getProjetos($args[0]);
+        return $_SESSION['projetos'];
     default:
       header('Location: ./pages/errors/405.php', true, 301);
       exit();

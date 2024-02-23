@@ -19,7 +19,7 @@
 <img alt="MySQL" src="https://img.shields.io/badge/MySQL-%2300f.svg?&logo=MySQL&logoColor=white">
 </a>
 
-<a href=""><img src="https://img.shields.io/badge/version-3.0.2-240222?" height="22" alt="Version"/></a>
+<a href=""><img src="https://img.shields.io/badge/version-3.0.3-240223?" height="22" alt="Version"/></a>
 
 <br>
 
@@ -32,6 +32,14 @@
 ## Notas de versão
 
 </a>
+
+### v3.0.3.240223
+
+- Realocação de arquivos para o diretório correto.
+- Correção no redirecionamento de botões.
+- Removido `arquivos` , `funções` e `scripts` que não eram utilizados.
+- Feito um controller para gerenciar a lista de projetos.
+- Criado um componente, que ira servir para gerar a lista de projetos.
 
 ### v3.0.2.240222
 
@@ -47,13 +55,11 @@
 - Instalado o framework `TailwindCSS`.
 - Introdução a duas novas funcionalidades no projeto.
 
-
 ### v3.0.0.232011
 
 - Realocação de Repositório.
 - Estruturação de pastas em estilo MVC (`Model View Controller`).
 - Refatoração de código.
-
 
 > OBS: Caso queria acompanhar as modificações citadas no changelog do projeto, acesse (este)[https://github.com/RRyanDEV/mix-canvas] repositório.
 
@@ -73,21 +79,15 @@
 - Tentativa de implementar, atualização das informações já preenchidas sem que gere uma cópia das informações que não foram editadas.
 - Feito uma função que puxa os valores do banco de dados.
 
-##
-
 ### v1.5.7.231002
 
 - Função para acompanhar o passo do formulário de acordo com o click no card desejado.
 - Correção no `id do usuário` que não estava sendo enviado para o banco, junto as respostas.
 - Verificação de email ja cadastrado, adicionado.
 
-##
-
 ### v1.5.6.230928
 
 - Modificado o modo de segurança da senha e verificação de credencial.
-
-##
 
 ### v1.5.5.230925
 
@@ -95,20 +95,14 @@
 - Modificado o modo de segurança da senha.
 - Porta do servidor para conexão modificada.
 
-##
-
 ### v1.5.4.230919
 
 - Atualização do estilo do formulário.
-
-##
 
 ### v1.4.4.230906
 
 - Mudanças no layout dos formulários.
 - Update nos botões de avançar e retroceder.
-
-##
 
 ### v1.4.3.230904
 
@@ -117,21 +111,15 @@
 - Mudanças nas questões do formulário.
 - Novo arquivo SASS, onde contêm a estilização dos botões.
 
-##
-
 ### v1.3.3.230824
 
 - Ajustes para onde redirecionava as páginas.
 - Reorganização do código de autenticação.
 - Alteração de tags usadas no código. Modificando para mais atuais.
 
-##
-
 ### v1.3.2.230822
 
 - Modificações na dashboard.
-
-##
 
 ### v1.2.2.230819
 
@@ -141,8 +129,6 @@
 - Novo layout de barra de navegação para a dashboard.
 - Corrigido para onde redirecionava ao finalizar sessão.
 
-##
-
 ### v1.2.1.230818
 
 - Adicionado uma dashboard para visualização das informações preenchidas.
@@ -150,14 +136,10 @@
 - Reestruturação de pastas e arquivos.
 - Criado um pasta contendo o database utilizado no projeto. `OBS: Ser usado localmente`
 
-##
-
 ### v1.2.0.230812
 
 - Update na tela principal, sendo adicionado um modal, para tela de cadastro.
 - Update na logo e nome da página do projeto.
-
-##
 
 ### v1.1.0.230810
 
@@ -165,8 +147,6 @@
 - Elementos tiveram seus tamanhos e cores modificados.
 - Atualização do plano de fundo.
 - Algumas funções novas adicionadas.
-
-##
 
 ### v1.0.0.230702
 
@@ -235,7 +215,7 @@
 
 ### v0.4.3.230511
 
-- Feito um array bidimensional, onde armazena as informações que serão alteradas do formulário. 
+- Feito um array bidimensional, onde armazena as informações que serão alteradas do formulário.
 - Criado uma função que gera o esboço do card.
 - Criado uma função que altera as informações do formulário de acordo com o index do array.
 

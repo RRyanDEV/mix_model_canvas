@@ -11,7 +11,9 @@ function formUpdate($args){
             performQuery("insert", [$userid, $pergunta, $respostaForm]);
         }
         $_SESSION[$args[0][(int)$_SESSION['step']]['title']] = $respostaForm;
-        // $_SESSION[$GLOBALS['componentArray'][(int)$_SESSION['step']]['title']] = "teste";
         header("Location: ./dashboard.php");
         exit();
 }
+?>
+
+<!-- . -->

@@ -1,3 +1,11 @@
+<?php
+include("../services/authService.php");
+include_once("../utils/utils.php");
+include("../components/projectComponent.php");
+authHandler("GET");
+
+$utils = new Utils();
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -20,7 +28,7 @@
 
             <div class="ml-3 flex space-x-2 items-center" id="userInfo">
                 <img class="w-8 h-8" src="../assets/img/user-icon.png">
-                <p class="text-white">Olá, USER</p>
+                <p class="text-white">Olá, <?php echo $_SESSION['username']; ?></p>
             </div>
 
             <div class="flex flex-row text-white space-x-3 mr-5 items-center">
@@ -38,18 +46,14 @@
             <div class="flex justify-center">
                 <div class="pt-2 flex items-center justify-center flex-col">
                     <h1 class="font-medium text-2xl text-white">Lista de projetos</h1>
-                    <p class="text-gray-400">Clique no nome do projeto para editar.</p>
+                    <p class="text-gray-400">Clique no nome do projeto para editar</p>
                 </div>
             </div>
 
 
             <div id="listProj" class="mx-20 overflow-y-auto h-48">
 
-                <div class="flex items-center mb-4"> <!-- Transformar em componente-->
-                    <input id="default-checkbox" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                    <label for="default-checkbox" class="ms-2 text-sm font-medium text-white"><a href="./dashboard.php">PROJETO TESTE</a></label>
-                </div>
-
+            <!-- ProjectComponent -->
 
             </div>
 

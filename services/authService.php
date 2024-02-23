@@ -28,12 +28,6 @@ function getUserData($userID)
     }
 }
 
+?>
 
-function logout()
-{
-    if (isset($_SESSION['username'])) {
-        session_start();
-        session_destroy();
-        header("Location: ../index.php");
-    }
-}
+<!-- . -->

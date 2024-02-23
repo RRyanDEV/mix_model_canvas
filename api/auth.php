@@ -6,7 +6,7 @@ include("../controllers/authController.php");
 if (isset($_REQUEST['logout']) == "true") {
   session_start();
   session_destroy();
-  header('Location: ../../../pages/login.php', true, 301);
+  header('Location: ../pages/login.php', true, 301);
   exit();
 }
 
@@ -25,9 +25,13 @@ function authHandler($method)
       if (isset($_REQUEST['username'])) {
         authCreateUser();
       }
-    break;
+      break;
     default:
-    header('Location: ../../../pages/405.php', true, 301);
-  exit();
+      header('Location: ./pages/errors/405.php', true, 301);
+      exit();
   }
 }
+
+?>
+
+<!-- . -->

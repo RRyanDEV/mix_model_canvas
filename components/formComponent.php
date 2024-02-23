@@ -85,3 +85,5 @@ function formComponent($name, $color, $title, $subtitle1, $subtitle2, $btnPrevio
 </form>';
 }
 ?>
+
+<!-- . -->
