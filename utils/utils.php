@@ -2,9 +2,11 @@
 
 class Utils
 {
-    public function initialize($variable)
+    public function initialize($variable, $params)
     {
-        $_SESSION['step'] = $_GET['step'];
+        if (isset($_GET['step'])) {
+            $_SESSION['step'] = $_GET['step'];
+        }
         if (!isset($_SESSION['textValue'])) {
             $_SESSION['textValue'] = "";
         }
@@ -14,8 +16,19 @@ class Utils
         if (!isset($_GET['step'])) {
             $_SESSION['step'] = 0;
         }
-        if (!isset($_SESSION[$variable[$_SESSION['step']]['title']])) {
-            $_SESSION[$variable[$_SESSION['step']]['title']] = "";
+        switch ($variable) {
+            case "componentArray":
+                if (!isset($_SESSION[$params[$_SESSION['step']]['title']])) {
+                    $_SESSION[$params[$_SESSION['step']]['title']] = "";
+                }
+                break;
+            case "newProjectData":
+                if (!isset($_SESSION['newProjectData'])) {
+                    $_SESSION['newProjectData'] = [];
+                }
+                break;
+            default:
+                break;
         }
     }
 

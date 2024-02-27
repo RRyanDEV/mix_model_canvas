@@ -3,13 +3,6 @@ include("../services/authService.php");
 include_once("../utils/utils.php");
 authHandler("GET");
 
-if (isset($_POST)) {
-    // echo "qualquercoisa";
-    $arr = $_POST;
-    print_r($arr);
-}
-
-
 $utils = new Utils();
 ?>
 
@@ -29,7 +22,7 @@ $utils = new Utils();
     <link rel="icon" href="../assets/img/site-logo.png" />
 </head>
 
-<body class="flex items-center h-screen w-screen  flex-col bg-gradient-to-b from-slate-300 to-slate-500">
+<body class="flex items-center h-screen w-screen flex-col bg-gradient-to-b from-slate-300 to-slate-500">
     <nav>
         <div class="flex w-screen p-2 bg-gradient-to-r from-slate-600 to-slate-800 justify-between">
 
@@ -39,13 +32,13 @@ $utils = new Utils();
             </div>
 
             <div class="flex flex-row text-white space-x-3 mr-5 items-center">
-                <a id="logOut-btn" href="../api/auth.php?logout=true"><button type="button" class="p-2 border rounded-md bg-gray-900 hover:bg-gray-500/50">
+                <a id="return-btn" href="../api/auth.php?logout=true"><button type="button" class="p-2 border w-28 rounded-md bg-gray-900 hover:bg-gray-500/50">
                         Sair</button></a>
             </div>
         </div>
     </nav>
 
-    <div class="flex flex-col max-sm:mt-14 mt-28 p-4 h-auto max-sm:w-auto w-1/2 rounded-xl bg-gradient-to-b from-slate-600 to-slate-800 space-y-12">
+    <div class="flex flex-col max-sm:mt-28 mt-28 p-4 h-auto max-sm:w-auto w-1/2 rounded-xl bg-gradient-to-b from-slate-600 to-slate-800 space-y-12">
 
 
         <div class="flex flex-col space-y-8">
@@ -57,8 +50,8 @@ $utils = new Utils();
             </div>
 
 
-            <div class="flex flex-col items-center space-y-6">
-                <form action="" method="POST">
+            <form action="./projetos.php" method="POST">
+                <div class="flex flex-col items-center space-y-6">
                     <div id="projCreate" class="flex flex-col space-y-4">
                         <div>
                             <label for="projName" class="block mb-2 text-sm font-medium text-white">Nome do Projeto</label>
@@ -72,13 +65,22 @@ $utils = new Utils();
                             </div>
                         </div>
                     </div>
-            </div>
-            <div id="buttons">
-                <div id="btn" class="flex flex-row justify-around max-sm:flex-col max-sm:items-center max-sm:space-y-5 mb-3">
-                    <button type="submit" name="submit" class="w-30 text-white bg-green-700 hover:bg-green-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">Criar</button>
                 </div>
-                </form>
-            </div>
+
+
+                <div class="flex mt-9 mb-3 justify-center space-x-9 items-center">
+
+                    <button type="submit" name="submit" class="w-32 flex text-white bg-green-700 hover:bg-green-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">Criar</button>
+
+                    <a href="./projetos.php">
+                        <button type="button" class="w-32 text-white bg-red-700 hover:bg-red-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">
+                            Voltar
+                        </button>
+                    </a>
+
+                </div>
+
+            </form>
 
 </body>
 

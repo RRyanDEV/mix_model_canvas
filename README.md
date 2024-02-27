@@ -33,6 +33,13 @@
 
 </a>
 
+### v3.0.4.240227
+
+- Alteração do schema do `database`.
+- Criado uma nova API, para a `dashboard`.
+- Criado um controller, para gerenciar a informações da tabela `bloco` do Banco de Dados.
+- Modificado um elemento do componente do formulário.
+
 ### v3.0.3.240223
 
 - Realocação de arquivos para o diretório correto.

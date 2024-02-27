@@ -1,5 +1,5 @@
 <?php 
-include("../services/database/performQuery.php");
+include_once("../services/database/performQuery.php");
 
 function getProjetos($userID){
     $projetoArr = performQuery("selectProject" , [$userID]);
@@ -7,8 +7,7 @@ function getProjetos($userID){
 }
 
 function postProjeto($args){
-    performQuery("insertProject" , [$args]);
-    
+    performQuery("insertProject" , $args); 
 }
 
 ?>

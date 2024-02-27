@@ -1,17 +1,17 @@
 <?php
 
-include("../controllers/projectController.php");
+include("../controllers/blocoController.php");
 
-function projectHandler($method, $args)
+function dashboardHandler($method, $args)
 {
   switch ($method) {
     case "POST":
       if (isset($_POST['submit'])) {
-        postProjeto([$_SESSION['userID'], $args[0], $args[1]]);
+      
       }
       break;
       case "GET":
-        $_SESSION['projetos'] = getProjetos($args[0]);
+       getBlocos($args);
        break;
     default:
       header('Location: ./pages/errors/405.php', true, 301);

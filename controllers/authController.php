@@ -14,7 +14,7 @@ function authLogin()
         $_SESSION['username'] = $resultHashed;
         header("Location: projetos.php");
     } else {
-        header("Location: error.php");
+        header("Location: ./errors/error.php");
     }
     exit();
 }

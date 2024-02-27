@@ -2,8 +2,6 @@
 
 include("../controllers/formularioController.php");
 
-
-
 function formHandler($method, $args)
 {
   switch ($method) {
@@ -13,7 +11,7 @@ function formHandler($method, $args)
           header('Location: ./pages/login.php', true, 301);
           exit();
         } else {
-          formUpdate(array($args));
+          formUpdate($args);
         }
       }
       break;

@@ -1,9 +1,19 @@
 <?php
 include("../services/authService.php");
+include_once("../api/dashboardAPI.php");
 include_once("../utils/utils.php");
 authHandler("GET");
 
 $utils = new Utils();
+
+$infoProjeto = array(
+    $_SESSION['userID'],
+    $_GET['projeto']
+);
+dashboardHandler("GET", $infoProjeto);
+
+// print_r($infoProjeto);
+// print_r($_SESSION['dashboardProjeto'])
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +43,7 @@ $utils = new Utils();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 </head>
 
-<body class="bg-gradient-to-b from-slate-300 to-slate-500 h-screen">
+<body class="bg-gradient-to-b from-slate-300 to-slate-500">
     <nav class="border-gray-200 bg-gradient-to-b from-slate-600 to-slate-800">
         <div class="flex flex-wrap items-center justify-between mx-auto pl-4 pt-2 pb-2 pr-4">
             <div class="flex flex-row items-center bg-transparent justify-between w-screen">
@@ -44,7 +54,10 @@ $utils = new Utils();
                     </svg>
                 </button>
                 <div class="md:hidden text-white text-sm">
-                    <h1>PROJETO TESTE</h1>
+                    <h1>
+                    <?php
+                    echo $_SESSION['dashboardProjeto']['projetoNome'] 
+                    ?></h1>
                 </div>
             </div>
             <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
@@ -81,7 +94,7 @@ $utils = new Utils();
                 </ul>
             </div>
             <div class="hidden w-full md:block md:w-auto text-white text-sm">
-                <h1>PROJETO TESTE</h1>
+                <h1><?php echo $_SESSION['dashboardProjeto']['projetoNome']?></h1>
             </div>
         </div>
     </nav>
@@ -174,8 +187,8 @@ $utils = new Utils();
                 </div>
 
             </div> <!--- Div Grid --->
-            <div class="cardBottom" onclick="goToForms(12)">
-                <div class="card_gray">
+            <div class="cardBottom">
+                <div class="card_gray" onclick="goToForms(12)">
                     <div id="cardTitle" class="mt">Fonte de receita</div>
                     <div id="cardSubtitle" class="mb">
                         É como a empresa ganha dinheiro.

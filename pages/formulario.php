@@ -10,27 +10,56 @@ session_start();
 authHandler('GET');
 
 $utils = new Utils();
-$utils->initialize($componentArray);
+$utils->initialize('componentArray', $componentArray);
 $doc = new DOMDocument();
+$doc->loadHTML(defaultLayout());
+echo $doc->saveHTML();
 
-formHandler('POST', $componentArray);
+// print_r($_POST);
 
-$_SESSION['textValue'] = $_SESSION[$componentArray[$_SESSION['step']]['title']];
+
+
+$title = $componentArray[$_SESSION['step']]['title'];
+$value = $_SESSION['dashboardProjeto'][$title];
+$postForm = array(
+    $title,
+    $_POST
+
+);
+formHandler('POST', $postForm);
+// print_r($componentArray[$_SESSION['step']]['title']);
+
+
+
+
+
+
+
+
+
+
+
+// $_SESSION['textValue'] = $_SESSION[$componentArray[$_SESSION['step']]['title']];
+
+
+
 function createComponent($arrayIndex)
 {
     $componentProps = array_values($GLOBALS['componentArray'][$arrayIndex]);
     return formComponent(...$componentProps);
 }
 
-$doc->loadHTML('<?xml encoding="utf-8" ?>' . '<link rel="icon" href="../assets/img/site-logo.png" />' . createComponent($_SESSION['step']));
+
+$doc->loadHTML(defaultLayout() . createComponent($_SESSION['step']));
+
 
 $element = $doc->getElementById("txt");
 if ($element !== null) {
-    $element->textContent = $_SESSION['textValue'];
+    $element->textContent = $value;
 }
 
-echo $doc->saveHTML();
 
+echo $doc->saveHTML();
 ?>
 
 <!DOCTYPE html>
@@ -43,14 +72,10 @@ echo $doc->saveHTML();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="../assets/scss/main.css">
-    <link rel="icon" href="../assets/img/site-logo.png" />
     <title>Questionário</title>
 </head>
 
 <body>
-    <?php
-
-    ?>
     <script type="text/javascript">
         function goToDash() {
             window.location = "./dashboard.php"

@@ -2,9 +2,23 @@
 include("../services/authService.php");
 include_once("../utils/utils.php");
 include("../components/projectComponent.php");
+include("../api/projetosAPI.php");
 authHandler("GET");
 
 $utils = new Utils();
+$utils->initialize('newProjectData', null);
+$doc = new DOMDocument();
+
+if (isset($_POST['submit'])) {
+    $_SESSION['newProjectData'] = array(
+        $_POST['projName'],
+        $_POST['projDesc']
+    );
+    projectHandler("POST", $_SESSION['newProjectData']);
+}
+
+projectHandler("GET", [$_SESSION['userID']]);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -32,7 +46,7 @@ $utils = new Utils();
             </div>
 
             <div class="flex flex-row text-white space-x-3 mr-5 items-center">
-                <a id="logOut-btn" href="../api/auth.php?logout=true"><button type="button" class="p-2 border rounded-md bg-gray-900 hover:bg-gray-500/50">
+                <a id="logOut-btn" href="../api/auth.php?logout=true"><button type="button" class="p-2 border w-28 rounded-md bg-gray-900 hover:bg-gray-500/50">
                         Sair</button></a>
             </div>
         </div>
@@ -53,7 +67,13 @@ $utils = new Utils();
 
             <div id="listProj" class="mx-20 overflow-y-auto h-48">
 
-            <!-- ProjectComponent -->
+                <?php
+
+                $doc->loadHTML('<?xml encoding="utf-8" ?>' . projectComponent($_SESSION['projetos']));
+                echo $doc->saveHTML()
+
+
+                ?>
 
             </div>
 
@@ -62,13 +82,13 @@ $utils = new Utils();
                 <div id="gridBtn" class="flex flex-row space-x-5 justify-center max-sm:flex-col max-sm:items-center max-sm:space-y-5 mb-3">
 
                     <a href="./novoProjeto.php">
-                        <button type="button" class="w-30 text-white bg-green-700 hover:bg-green-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">
+                        <button type="button" class="w-32 text-white bg-green-700 hover:bg-green-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">
                             Criar Projeto
                         </button>
                     </a>
 
                     <a href="">
-                        <button type="button" class="w-30 text-white bg-red-700 hover:bg-red-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">
+                        <button type="button" class="w-32 text-white bg-red-700 hover:bg-red-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">
                             Deletar Projeto
                         </button>
                     </a>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $componentArray = [
     '0' => [
@@ -75,7 +75,7 @@ function formComponent($name, $color, $title, $subtitle1, $subtitle2, $btnPrevio
                 </div>
                 <div class="' . $btnReturn . '">
                 <div class="buttonsFormsExit" ' . $displayBtnReturn . '>
-                <button class="buttonForm" type="submit" name="submit">Salvar e sair</button>
+                <button class="buttonForm" type="submit" name="submit" value="'. $name .'">Salvar e sair</button>
                 </div>
             </div>
             </div>
