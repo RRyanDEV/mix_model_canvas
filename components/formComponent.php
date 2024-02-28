@@ -26,7 +26,7 @@ $componentArray = [
 ', 'btnPrevious' => 'arrow_left', 'btnReturn' => 'returnButton'
     ],
     '7' => [
-        'name' => 'atividadeschave', 'color' =>  'rose', 'title' => 'Atividades Chaves', 'subtitle1' => 'São as atividades essenciais para a operação do negócio.', 'subtitle2' =>  'Exemplo: produção, marketing, vendas, atendimento, etc.
+        'name' => 'atividadeschave', 'color' =>  'rose', 'title' => 'Atividades Chave', 'subtitle1' => 'São as atividades essenciais para a operação do negócio.', 'subtitle2' =>  'Exemplo: produção, marketing, vendas, atendimento, etc.
 ', 'btnPrevious' => 'arrow_left', 'btnReturn' => 'returnButton'
     ],
     '8' => [

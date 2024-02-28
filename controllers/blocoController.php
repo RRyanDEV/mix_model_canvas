@@ -17,7 +17,7 @@ function getBlocos($projectInfo)
             'Problemas' => '',
             'Solução' => '',
             'Relacionamento com cliente' => '',
-            'Atividades Chaves' => '',
+            'Atividades Chave' => '',
             'Métricas chave' => '',
             'Canais de distribuição' => '',
             'Estrutura de custo' => '',
@@ -37,7 +37,5 @@ function getBlocos($projectInfo)
         }
     }
 }
-
-
 ?>
 <!-- . -->

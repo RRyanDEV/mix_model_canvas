@@ -9,6 +9,14 @@ function getProjetos($userID){
 function postProjeto($args){
     performQuery("insertProject" , $args); 
 }
+function deleteProjeto($args){
+    foreach($args as $key => $arg){
+       if(is_numeric($key)){
+        performQuery("deleteProject" , [$key]);
+       }
+    }
+}
+
 
 ?>
 <!-- . -->

@@ -8,6 +8,8 @@ function projectHandler($method, $args)
     case "POST":
       if (isset($_POST['submit'])) {
         postProjeto([$_SESSION['userID'], $args[0], $args[1]]);
+      } if (isset($_POST['submitDel'])) {
+        deleteProjeto($args);
       }
       break;
       case "GET":

@@ -19,7 +19,7 @@
 <img alt="MySQL" src="https://img.shields.io/badge/MySQL-%2300f.svg?&logo=MySQL&logoColor=white">
 </a>
 
-<a href=""><img src="https://img.shields.io/badge/version-3.0.3-240223?" height="22" alt="Version"/></a>
+<a href=""><img src="https://img.shields.io/badge/version-3.0.5-240228?" height="22" alt="Version"/></a>
 
 <br>
 
@@ -32,6 +32,14 @@
 ## Notas de versão
 
 </a>
+
+### v3.0.5.240228
+
+- Alteração do schema do `database`.
+- Criado novas `query`, para coletar e alterar informações do database.
+- Reinstalado o framework `tailwindCSS`, para correções de bugs.
+- Ajuste nos `controllers` usados no: formulário, criação de projetos e autenticação.
+- Reestruturado o painel de projetos, com a adição de uma nova funcionalidade.
 
 ### v3.0.4.240227
 

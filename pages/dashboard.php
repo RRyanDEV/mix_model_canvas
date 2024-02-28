@@ -10,6 +10,7 @@ $infoProjeto = array(
     $_SESSION['userID'],
     $_GET['projeto']
 );
+
 dashboardHandler("GET", $infoProjeto);
 
 // print_r($infoProjeto);
@@ -152,7 +153,7 @@ dashboardHandler("GET", $infoProjeto);
                 </div>
 
                 <div class="card_rose" onclick="goToForms(7)">
-                    <div id="cardTitle" class="mt">Atividades Chaves</div>
+                    <div id="cardTitle" class="mt">Atividades Chave</div>
                     <div id="cardSubtitle" class="mb">
                         São as atividades essenciais para a operação do negócio.
                     </div>

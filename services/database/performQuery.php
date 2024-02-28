@@ -11,8 +11,8 @@ function performQuery($type, $args)
             $result =  mysqli_real_escape_string($connection->connect(), $args[0]);
             break;
         case "insert": //Envia os valores que o usuário preencher
-            $query = "INSERT INTO blocos(id_user,pergunta,resposta) 
-            VALUES ($args[0] , '$args[1]', '$args[2]')";
+            $query = "INSERT INTO blocos(id_projeto,id_user,pergunta,resposta) 
+            VALUES ($args[0] , '$args[1]', '$args[2]','$args[3]')";
             mysqli_query($connection->connect(), $query);
             break;
         case 'insertUser': //Cria o login do usúario
@@ -21,7 +21,7 @@ function performQuery($type, $args)
             $result = mysqli_query($connection->connect(), $query);
             break;
         case "update": //Altera as informações do usuário no banco
-            $query = "UPDATE blocos SET resposta='$args[0]' WHERE id_user='$args[1]' and pergunta='$args[2]'";
+            $query = "UPDATE blocos SET resposta='$args[0]' WHERE id_user='$args[2]' and pergunta='$args[3]' AND id_projeto='$args[1]'";
             mysqli_query($connection->connect(), $query);
             break;
         case "select": //Pega um valor do banco, com base no ID do usúario
@@ -30,13 +30,13 @@ function performQuery($type, $args)
             $result = mysqli_fetch_all($queryResult, MYSQLI_NUM);
             break;
         case "selectProject":
-            $query = "SELECT * FROM `projetos` WHERE id_user='$args[0]'";
+            $query = "SELECT * FROM `projetos` WHERE id_user='$args[0]' AND excluido='false'";
             $queryResult = mysqli_query($connection->connect(), $query);
             $result = mysqli_fetch_all($queryResult, MYSQLI_NUM);
             // print_r($result);
             break;
         case "selectProjectByID":
-            $query = "SELECT * FROM `projetos` WHERE id_user='$args[0]' AND id='$args[1]'";
+            $query = "SELECT * FROM `projetos` WHERE id_user='$args[0]' AND id='$args[1]' AND excluido='false'";
             $queryResult = mysqli_query($connection->connect(), $query);
             $result = mysqli_fetch_all($queryResult, MYSQLI_NUM);
             // print_r($result);
@@ -44,6 +44,10 @@ function performQuery($type, $args)
         case "insertProject":
             $query = "INSERT INTO `projetos` (id_user, projeto_nome, projeto_desc) VALUES ('$args[0]' , '$args[1]', '$args[2]')";
             $result = mysqli_query($connection->connect(), $query);
+            break;
+        case "deleteProject":
+            $query = "UPDATE projetos SET excluido='true' WHERE id='$args[0]'";
+            mysqli_query($connection->connect(), $query);
             break;
         case "selectBlocos":
             $query = "SELECT b.id, b.id_projeto, p.projeto_nome, p.projeto_desc, b.id_user, b.pergunta, b.resposta

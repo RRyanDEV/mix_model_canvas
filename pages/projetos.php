@@ -9,6 +9,8 @@ $utils = new Utils();
 $utils->initialize('newProjectData', null);
 $doc = new DOMDocument();
 
+projectHandler("GET", [$_SESSION['userID']]);
+
 if (isset($_POST['submit'])) {
     $_SESSION['newProjectData'] = array(
         $_POST['projName'],
@@ -16,8 +18,10 @@ if (isset($_POST['submit'])) {
     );
     projectHandler("POST", $_SESSION['newProjectData']);
 }
+if (isset($_POST['submitDel'])) {
+    projectHandler("POST", $_POST);
+}
 
-projectHandler("GET", [$_SESSION['userID']]);
 
 ?>
 <!DOCTYPE html>
@@ -36,8 +40,8 @@ projectHandler("GET", [$_SESSION['userID']]);
     <link rel="icon" href="../assets/img/site-logo.png" />
 </head>
 
-<body class="flex items-center h-screen w-screen  flex-col bg-gradient-to-b from-slate-300 to-slate-500">
-    <nav>
+<body class="flex flex-col justify-around items-center h-screen w-screen bg-gradient-to-b from-slate-300 to-slate-500">
+    <nav class="absolute top-0">
         <div class="flex w-screen p-2 bg-gradient-to-r from-slate-600 to-slate-800 justify-between">
 
             <div class="ml-3 flex space-x-2 items-center" id="userInfo">
@@ -52,54 +56,31 @@ projectHandler("GET", [$_SESSION['userID']]);
         </div>
     </nav>
 
-    <div class="flex flex-col max-sm:mt-14 mt-28 p-4 h-auto max-sm:w-auto w-1/2 rounded-xl bg-gradient-to-b from-slate-600 to-slate-800 space-y-12">
-
-
-        <div class="flex flex-col space-y-8">
-
-            <div class="flex justify-center">
-                <div class="pt-2 flex items-center justify-center flex-col">
-                    <h1 class="font-medium text-2xl text-white">Lista de projetos</h1>
-                    <p class="text-gray-400">Clique no nome do projeto para editar</p>
-                </div>
+    <div class="flex flex-col p-4 max-sm:w-auto h-auto w-1/2 rounded-xl bg-gradient-to-b from-slate-600 to-slate-800 space-y-8">
+        <div class="flex justify-center">
+            <div class="p-2 flex items-center justify-center flex-col">
+                <h1 class="font-medium text-2xl text-white">Lista de projetos</h1>
+                <p class="text-gray-400">Clique no nome do projeto para editar</p>
             </div>
-
-
-            <div id="listProj" class="mx-20 overflow-y-auto h-48">
-
+        </div>
+        <form action="" class="flex flex-col space-y-8" method="POST">
+            <div id="listProj" class="flex flex-col mx-20 overflow-y-auto h-48">
                 <?php
-
                 $doc->loadHTML('<?xml encoding="utf-8" ?>' . projectComponent($_SESSION['projetos']));
                 echo $doc->saveHTML()
-
-
                 ?>
-
             </div>
+            <div class="flex flex-row justify-between max-sm:flex max-sm:flex-col max-sm:space-y-5 max-sm:items-center max-sm:mb-2">
+                <div class="flex flex-row space-x-3">
+                    <a href="./novoProjeto.php"><button type="button" class="w-auto text-white bg-green-700 hover:bg-green-700/50 font-medium rounded-lg text-sm p-3">Criar Projeto</button></a>
 
-
-            <div id="buttons">
-                <div id="gridBtn" class="flex flex-row space-x-5 justify-center max-sm:flex-col max-sm:items-center max-sm:space-y-5 mb-3">
-
-                    <a href="./novoProjeto.php">
-                        <button type="button" class="w-32 text-white bg-green-700 hover:bg-green-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">
-                            Criar Projeto
-                        </button>
-                    </a>
-
-                    <a href="">
-                        <button type="button" class="w-32 text-white bg-red-700 hover:bg-red-700/50 font-medium rounded-lg text-sm p-3 text-center justify-center items-center">
-                            Deletar Projeto
-                        </button>
-                    </a>
-
+                    <a href=""><button type="button" class="w-auto text-white bg-blue-700 hover:bg-blue-700/30 font-medium rounded-lg text-sm p-3">Exportar selecionados</button></a>
                 </div>
+
+                <button type="submit" name="submitDel" class="w-auto text-white bg-red-700 hover:bg-red-700/50 font-medium rounded-lg text-sm p-3">Deletar Projeto</button>
             </div>
-
-        </div>
-
+        </form>
     </div>
-
 </body>
 
 </html>
