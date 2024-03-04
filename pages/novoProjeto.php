@@ -32,7 +32,7 @@ $utils = new Utils();
             </div>
 
             <div class="flex flex-row text-white space-x-3 mr-5 items-center">
-                <a id="return-btn" href="../api/auth.php?logout=true"><button type="button" class="p-2 border w-28 rounded-md bg-gray-900 hover:bg-gray-500/50">
+                <a id="return-btn" href="../api/authAPI.php?logout=true"><button type="button" class="p-2 border w-28 rounded-md bg-gray-900 hover:bg-gray-500/50">
                         Sair</button></a>
             </div>
         </div>

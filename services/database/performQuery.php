@@ -41,6 +41,24 @@ function performQuery($type, $args)
             $result = mysqli_fetch_all($queryResult, MYSQLI_NUM);
             // print_r($result);
             break;
+        case "selectBlocosByProjectID":
+                $queryHeading = "SELECT b.id, b.id_projeto, p.projeto_nome, p.projeto_desc, b.id_user, b.pergunta, b.resposta
+                FROM mix_canvas.blocos AS b
+                LEFT JOIN mix_canvas.projetos AS p
+                ON p.id=b.id_projeto
+                WHERE b.id_user =' $args[0] ' ";
+                $queryParams = "";
+                for ($i = 1; $i <= count($args) - 1; $i++) {
+                    if($i > 1){
+                        $queryParams = $queryParams . "OR b.id_projeto='$args[$i]'";
+                    }
+                    $queryParams = $queryParams . "AND b.id_projeto='$args[$i]'";
+                }
+                $query = $queryHeading . $queryParams;
+                $queryResult = mysqli_query($connection->connect(), $query);
+                $result = mysqli_fetch_all($queryResult, MYSQLI_NUM);
+                // print_r($result);
+            break;
         case "insertProject":
             $query = "INSERT INTO `projetos` (id_user, projeto_nome, projeto_desc) VALUES ('$args[0]' , '$args[1]', '$args[2]')";
             $result = mysqli_query($connection->connect(), $query);
@@ -48,16 +66,6 @@ function performQuery($type, $args)
         case "deleteProject":
             $query = "UPDATE projetos SET excluido='true' WHERE id='$args[0]'";
             mysqli_query($connection->connect(), $query);
-            break;
-        case "selectBlocos":
-            $query = "SELECT b.id, b.id_projeto, p.projeto_nome, p.projeto_desc, b.id_user, b.pergunta, b.resposta
-            FROM mix_canvas.blocos AS b
-            LEFT JOIN mix_canvas.projetos AS p
-            ON p.id=b.id_projeto
-            WHERE b.id_user =' $args[0] ' AND b.id_projeto = ' $args[1] ' ";
-            $queryResult = mysqli_query($connection->connect(), $query);
-            $result = mysqli_fetch_all($queryResult, MYSQLI_NUM);
-            // print_r($result);
             break;
         default: //Checa credenciais
             $query = "SELECT * FROM `users` WHERE email='$args[0]' AND password='" . ($args[1]) . "'";

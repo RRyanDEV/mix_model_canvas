@@ -1,69 +1,11 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
-@media print {
-  #no-print {
-    display: none;
-  }
+@font-face {
+  font-family: "Oswald";
+  src: url(../fonts/Oswald/Oswald-Regular.ttf) format(truetype);
 }
-.endparent {
-  background-color: white;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.endparent .buttons, .endparent .returnButton {
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.tables {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-.demo {
-  padding: 0;
-  border-collapse: collapse;
-  font-family: Roboto, Arial, sans-serif;
-}
-
-.demo th {
-  border: 1px inset #000000;
-  padding: 4px;
-  background: #F0F0F0;
-}
-
-.demo td {
-  border: 1px inset #000000;
-  padding: 5px;
-}
-
-.label {
-  color: black !important;
-}
-
-.headerPdf {
-  flex-direction: column;
-  display: flex;
-  height: auto;
-  background-color: #cbd5e1;
-  color: black;
-  border-bottom: 2px solid #000000;
-  text-align: justify;
-  margin-bottom: 7rem;
-}
-.headerPdf .title, .headerPdf .subtitle {
-  padding-right: 2px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  display: flex;
-}
-.headerPdf .title h2, .headerPdf .subtitle h2 {
-  color: #374151;
-  margin-right: 5px;
+@font-face {
+  font-family: "Rubik";
+  src: url(../fonts/Rubik/Rubik-Regular.ttf) format(truetype);
 }
 * {
   box-sizing: border-box;
@@ -72,7 +14,7 @@
 }
 
 body {
-  background-image: url(../img/backgroundImage.jpg);
+  background-color: #0f172a;
   margin: auto;
   background-repeat: no-repeat;
   font-family: "Rubik", sans-serif;
@@ -87,6 +29,7 @@ main {
 }
 
 textarea {
+  color: #000000;
   padding: 5px;
   border-radius: 9px;
   resize: none;

@@ -1,6 +1,6 @@
 <?php
 
-include_once("../api/auth.php");
+include_once("../api/authAPI.php");
 include_once("../services/database/performQuery.php");
 
 

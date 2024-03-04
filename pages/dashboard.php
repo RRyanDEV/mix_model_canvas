@@ -1,6 +1,7 @@
 <?php
 include("../services/authService.php");
 include_once("../api/dashboardAPI.php");
+include_once("../api/exportPdfAPI.php");
 include_once("../utils/utils.php");
 authHandler("GET");
 
@@ -10,11 +11,13 @@ $infoProjeto = array(
     $_SESSION['userID'],
     $_GET['projeto']
 );
-
 dashboardHandler("GET", $infoProjeto);
 
-// print_r($infoProjeto);
-// print_r($_SESSION['dashboardProjeto'])
+$projetoID = $_SESSION['dashboardProjeto']['projetoID'];
+$username = $_SESSION['username'];
+$projetoNome = $_SESSION['dashboardProjeto']['projetoNome'];
+$projetoDesc = $_SESSION['dashboardProjeto']['projetoDesc'];
+
 ?>
 
 <!DOCTYPE html>
@@ -30,18 +33,10 @@ dashboardHandler("GET", $infoProjeto);
     <title>Model Canvas - Dashboard</title>
     <!-- Link's -->
     <link rel="stylesheet" href="/dist/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/scss/main.css">
     <link rel="icon" href="../assets/img/site-logo.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <!-- Scripts -->
-    <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
-    <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="../src/libs/flowbite/flowbite.min.js"></script>
 </head>
 
 <body class="bg-gradient-to-b from-slate-300 to-slate-500">
@@ -56,9 +51,9 @@ dashboardHandler("GET", $infoProjeto);
                 </button>
                 <div class="md:hidden text-white text-sm">
                     <h1>
-                    <?php
-                    echo $_SESSION['dashboardProjeto']['projetoNome'] 
-                    ?></h1>
+                        <?php
+                        echo $projetoNome;
+                        ?></h1>
                 </div>
             </div>
             <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
@@ -70,7 +65,7 @@ dashboardHandler("GET", $infoProjeto);
                                     <img class="userimg" src="../assets/img/user-icon.png">
                                 </div>
                                 <div id="usertext">
-                                    <p>Olá, <?php echo $_SESSION['username']; ?></p>
+                                    <p>Olá, <?php echo $username; ?></p>
                                 </div>
                             </div>
                             <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
@@ -81,21 +76,22 @@ dashboardHandler("GET", $infoProjeto);
                         <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                 <li>
-                                    <a href="./exportPdf.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Exportar PDF</a>
+                                    <a href="./exportPdf.php?projectID=<?php echo $projetoID ?>" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Exportar PDF</a>
                                 </li>
                                 <li>
                                     <a href="./projetos.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Voltar aos projetos</a>
                                 </li>
                             </ul>
                             <div class="py-1">
-                                <a href="../api/auth.php?logout=true" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sair</a>
+                                <a href="../api/authAPI.php?logout=true" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sair</a>
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="hidden w-full md:block md:w-auto text-white text-sm">
-                <h1><?php echo $_SESSION['dashboardProjeto']['projetoNome']?></h1>
+            <div class="hidden w-full md:flex md:flex-col md:items-end mr-1 md:w-auto items-right text-white text-sm">
+                <h1><?php echo $projetoNome; ?></h1>
+                <p class="text-gray-400 text-xs"><?php echo $projetoDesc ?></p>
             </div>
         </div>
     </nav>

@@ -5,19 +5,22 @@
 }
 
 body {
-  background-image: url(../img/backgroundImage.jpg);
+  background-color: $color-bg;
   margin: auto;
   background-repeat: no-repeat;
   font-family: $font;
   overflow: auto;
 }
-main{
+
+main {
   align-self: center;
   display: flex;
   justify-content: center;
   height: 90vh;
 }
+
 textarea {
+  color: $dark;
   padding: 5px;
   border-radius: 9px;
   resize: none;
@@ -26,7 +29,7 @@ textarea {
   border: none;
   outline: none;
   font-size: 13px;
-  font-family: $font-default;
+  font-family: 'Oswald', sans-serif;
   letter-spacing: 2px;
 }
 
@@ -37,6 +40,6 @@ fieldset {
   margin: 0;
 }
 
-a{
+a {
   text-decoration: none;
 }

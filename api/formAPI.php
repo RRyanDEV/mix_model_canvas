@@ -11,7 +11,7 @@ function formHandler($method, $args)
           header('Location: ./pages/login.php', true, 301);
           exit();
         } else {
-          formUpdate($args);
+          updateForm($args);
         }
       }
       break;

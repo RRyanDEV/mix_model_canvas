@@ -47,7 +47,6 @@ $componentArray = [
     '12' => ['name' => 'fontereceita', 'color' =>  'gray', 'title' => 'Fonte de receita', 'subtitle1' => 'É como a empresa ganha dinheiro.', 'subtitle2' =>  'Exemplo: venda de produtos/serviços, aluguel de espaço, publicidade,comissões,etc.
 ', 'btnPrevious' => 'arrow_left', 'btnReturn' => 'returnButton']
 ];
-global $componentArray;
 
 function formComponent($name, $color, $title, $subtitle1, $subtitle2, $btnPrevious, $btnReturn)
 {
@@ -75,7 +74,7 @@ function formComponent($name, $color, $title, $subtitle1, $subtitle2, $btnPrevio
                 </div>
                 <div class="' . $btnReturn . '">
                 <div class="buttonsFormsExit" ' . $displayBtnReturn . '>
-                <button class="buttonForm" type="submit" name="submit" value="'. $name .'">Salvar e sair</button>
+                <button class="buttonForm" type="submit" name="submit" value="' . $name . '">Salvar e sair</button>
                 </div>
             </div>
             </div>

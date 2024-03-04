@@ -1,46 +1,25 @@
 <?php
-include_once("../utils/utils.php");
-
-$utils = new Utils();
-global $utils;
-
-function createPdfComponent()
+function createPdfComponent($exportData)
 {
-    $formarray = "";
-    $ignore = [
-        "email",
-        "userID",
-        "username",
-        "step",
-        "textValue",
-    ];
-    foreach ($_SESSION as $key => $item) {
-        $ignored = $GLOBALS['utils']->valueIsIgnored($key, $ignore);
-        if (!($ignored)) {
-            $resposta = $item;
-            $formarray =  $formarray . '<tr class="label"><td class="label">' . $key . '</td><td>' . $resposta . '</td></tr>';
+    $table = '';
+    foreach ($exportData as $key => $item) {
+        $component = '';
+        $heading = '<div class="relative break-after-page overflow-x-auto sm:rounded-lg my-9 mx-9">
+        <table class="w-full text-sm text-left rtl:text-right rounded-xl text-gray-500">';
+        if (is_numeric($key)) {
+            $heading = $heading . '<caption class="p-5 text-lg font-semibold text-left rtl:text-right print:border-r print:border-l print:border-t text-gray-900 bg-white">' . $exportData[$key]['projetoNome'] . '<p class="mt-1 text-sm font-normal text-gray-500">' . $exportData[$key]['projetoDesc'] . '</p>
+                </caption>
+                <thead class="text-xs text-gray-800 print:border-b print:border-r print:border-l print:border-t uppercase bg-gray-200"><tr><th scope="col" class="px-6 py-3">Avaliação</th><th scope="col" class="px-6 py-3">Resposta</th></tr></thead>';
+            foreach ($exportData[$key] as $pergunta => $resposta) {
+                if (strcmp($pergunta, 'projetoNome') !== 0 && strcmp($pergunta, 'projetoDesc') !== 0) {
+                    $component = $component . '<tbody><tr class="bg-white border-b print:border-r print:border-l mb-9"><th scope="row" class="px-6 py-4 font-medium print:border-r text-gray-900 whitespace-nowrap">' . $pergunta . '</th><td class="px-6 py-4 h-auto pb-6 w-1/2">' . $resposta . '</td></tr></tbody>';
+                }
+            }
+            $component = $component . '</table></div>';
+            $table = $table . $heading . $component;
         }
     };
-    $heading = '<div class="endparent">
-    <div class="headerPdf">
-            <div class="title">
-            <h2>Nome do Aluno: ' . '<h3>' . $_SESSION['username'] . '<h3>' . '</h2> ' . '
-            </div>
-            <div class="subtitle">
-            <h2>Email do Aluno: ' . '<h3>' . $_SESSION['email'] . '<h3>' . '</h2>' . '
-            </div>
-        </div>';
-    $component = '<div class="TitleEnd">
-    </a><form method="post">
-    </form></div>' . '<div class="tables"><div class="tbl"><table class="demo"><tbody>' . $formarray . '</tbody></table><div id="no-print" class="buttons">
-    <div id="imprimirBtn" class="pdfButton">
-                    <p><a href="">Imprimir</a></p>
-                </div>
-                <div class="pdfButton">
-                    <p><a href="./dashboard.php">Voltar</a></p>
-                </div>
-                </div></div></div></div>';
-    return $heading . $component;
+    return $table;
 }
 ?>
 

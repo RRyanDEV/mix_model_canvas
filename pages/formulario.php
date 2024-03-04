@@ -1,7 +1,7 @@
 <?php
 include("../utils/utils.php");
-include("../api/form.php");
-include("../api/auth.php");
+include("../api/formAPI.php");
+include("../api/authAPI.php");
 include("../components/formComponent.php");
 include("../services/database/performQuery.php");
 include_once("../components/layouts/defaultLayout.php");
@@ -15,9 +15,6 @@ $doc = new DOMDocument();
 $doc->loadHTML(defaultLayout());
 echo $doc->saveHTML();
 
-// print_r($_POST);
-
-
 
 $title = $componentArray[$_SESSION['step']]['title'];
 $value = $_SESSION['dashboardProjeto'][$title];
@@ -26,22 +23,9 @@ $postForm = array(
     $_POST
 
 );
+$projetoID = $_SESSION['dashboardProjeto']['projetoID'];
+
 formHandler('POST', $postForm);
-// print_r($componentArray[$_SESSION['step']]['title']);
-
-
-
-
-
-
-
-
-
-
-
-// $_SESSION['textValue'] = $_SESSION[$componentArray[$_SESSION['step']]['title']];
-
-
 
 function createComponent($arrayIndex)
 {
@@ -49,15 +33,12 @@ function createComponent($arrayIndex)
     return formComponent(...$componentProps);
 }
 
-
 $doc->loadHTML(defaultLayout() . createComponent($_SESSION['step']));
-
 
 $element = $doc->getElementById("txt");
 if ($element !== null) {
     $element->textContent = $value;
 }
-
 
 echo $doc->saveHTML();
 ?>
@@ -70,15 +51,15 @@ echo $doc->saveHTML();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="PHP, MySQL, HTML, SASS" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="../assets/scss/main.css">
+    <script src="../src/libs/jquery/jquery.min.js"></script>
     <title>Questionário</title>
 </head>
 
 <body>
     <script type="text/javascript">
         function goToDash() {
-            window.location = "./dashboard.php"
+            window.location = "./dashboard.php?projeto=<?php $projetoID ?>"
         }
 
         jQuery(document).on('keyup', 'textarea', updateCount);

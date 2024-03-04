@@ -17,9 +17,6 @@ include_once("../components/layouts/defaultLayout.php");
     <!-- Link's -->
     <link rel="stylesheet" href="../assets/scss/main.css">
     <link rel="icon" href="../assets/img/site-logo.png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <title>Login - Model Canvas</title>
 </head>
 

@@ -35,7 +35,8 @@ function authCreateUser()
     $email    = performQuery('string', [$email]);
     $password = stripslashes($_REQUEST['password']);
     $password = performQuery('string', [$password]);
-    $create_datetime = date("Y-m-d H:i:s");
+    $dt = new DateTime("now", new DateTimeZone("America/Sao_Paulo"));
+    $create_datetime = $dt -> format("d-m-Y, H:i:s");
     $result = performQuery('insertUser', [$username, $password, $email, $create_datetime]);
     if ($result) {
         header("Location: success.php");

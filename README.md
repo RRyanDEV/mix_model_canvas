@@ -19,7 +19,7 @@
 <img alt="MySQL" src="https://img.shields.io/badge/MySQL-%2300f.svg?&logo=MySQL&logoColor=white">
 </a>
 
-<a href=""><img src="https://img.shields.io/badge/version-3.0.5-240228?" height="22" alt="Version"/></a>
+<a href=""><img src="https://img.shields.io/badge/version-4.0.0-240303?" height="22" alt="Version"/></a>
 
 <br>
 
@@ -32,6 +32,19 @@
 ## Notas de versão
 
 </a>
+
+### v4.0.0.240303
+
+- Refeito a rota de todas as `api's` do projeto.
+- Ajuste e criação de novos `controllers`.
+- Adicionado novas funcionalidades.
+- Alteração do `Schema` do database.
+- Removido a imagem de backround, sendo substituida por um `gradient color`.
+- Adicionado duas bibliotecas: `JQuery` e `Flowbite`.
+- Versão final do projeto. ✅
+- Adicionado duas fontes: `Oswald` e `Rubik`.
+
+##
 
 ### v3.0.5.240228
 
